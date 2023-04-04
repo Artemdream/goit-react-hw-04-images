@@ -30,12 +30,12 @@ export const App = () => {
       setIsActiveBtn(false);
 
       try {
-        const { hits, totalHits } = await fetchImages(searchQuery, page);
+        const { hits } = await fetchImages(searchQuery, page);
 
         setImages(state => [...state, ...hits]);
         setIsActiveBtn(true);
 
-        if (images.length === totalHits) setIsActiveBtn(false);
+        if (hits.length === 0) setIsActiveBtn(false);
       } catch (error) {
         setError('sorry, the server is not responding, try again later');
       } finally {
@@ -44,7 +44,7 @@ export const App = () => {
     };
 
     getImages();
-  }, [searchQuery, page, images]);
+  }, [searchQuery, page]);
 
   //* По кліку отримуємо велике зображення і відкриваємо модалку
 
