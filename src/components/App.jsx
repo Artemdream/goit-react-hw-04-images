@@ -44,7 +44,7 @@ export const App = () => {
     };
 
     getImages();
-  }, [searchQuery, page]);
+  }, [searchQuery, page, images]);
 
   //* По кліку отримуємо велике зображення і відкриваємо модалку
 
