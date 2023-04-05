@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import '../styles.css';
 
 export const Modal = ({ largeImage, onClick }) => {
   //* Вішаємо слухач на window по натисканню клавіші при монтуванні
-
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
     //* Видаляємо слухача з window при розмонтуванні
     return () => window.removeEventListener('keydown', handleKeyDown);
-  });
+  }, []);
 
   //* Закриваємо модалку по клавіші Esc
   const handleKeyDown = e => {
@@ -32,4 +32,9 @@ export const Modal = ({ largeImage, onClick }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  largeImage: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

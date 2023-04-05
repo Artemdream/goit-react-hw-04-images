@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 import '../styles.css';
 
 export const Searchbar = ({ onSubmit }) => {
@@ -43,4 +44,8 @@ export const Searchbar = ({ onSubmit }) => {
       </form>
     </header>
   );
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
